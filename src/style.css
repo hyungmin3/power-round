@@ -21,6 +21,7 @@ html,
 body,
 #app {
   margin: 0;
+  height: 100%;
   min-height: 100%;
   width: 100%;
 }
@@ -39,8 +40,11 @@ button {
 
 .app-shell {
   position: relative;
-  min-height: 100vh;
   width: 100vw;
+  height: 100vh;
+  height: 100dvh;
+  min-height: 100vh;
+  min-height: 100dvh;
   overflow: hidden;
 }
 
@@ -274,7 +278,7 @@ button {
   display: flex;
   justify-content: space-between;
   align-items: end;
-  padding: 1rem;
+  padding: 1rem 1rem calc(1rem + env(safe-area-inset-bottom));
   pointer-events: none;
 }
 
@@ -323,6 +327,55 @@ button {
   transform: scale(0.98);
 }
 
+@media (pointer: coarse) and (max-height: 1100px) {
+  .mobile-controls {
+    padding: 0.7rem 0.7rem calc(0.8rem + env(safe-area-inset-bottom));
+  }
+
+  .joystick {
+    width: 116px;
+    height: 116px;
+  }
+
+  .joystick-thumb {
+    width: 46px;
+    height: 46px;
+  }
+
+  .action-cluster {
+    gap: 0.6rem;
+  }
+
+  .action-button {
+    min-width: 110px;
+    min-height: 54px;
+    padding: 0.7rem 1rem;
+    font-size: 0.92rem;
+  }
+}
+
+@media (pointer: coarse) and (max-height: 900px) {
+  .mobile-controls {
+    padding: 0.55rem 0.55rem calc(0.65rem + env(safe-area-inset-bottom));
+  }
+
+  .joystick {
+    width: 104px;
+    height: 104px;
+  }
+
+  .joystick-thumb {
+    width: 40px;
+    height: 40px;
+  }
+
+  .action-button {
+    min-width: 98px;
+    min-height: 48px;
+    padding: 0.58rem 0.88rem;
+    font-size: 0.86rem;
+  }
+}
 @media (max-width: 980px) {
   .hud-top {
     grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -510,6 +563,7 @@ button {
     font-size: 0.88rem;
   }
 }
+
 
 
 
