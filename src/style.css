@@ -1,4 +1,4 @@
-﻿:root {
+:root {
   color-scheme: dark;
   font-family: "Segoe UI", "Gill Sans", sans-serif;
   line-height: 1.4;
@@ -172,17 +172,26 @@ button {
   display: grid;
   place-items: center;
   padding: 1.5rem;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
   background: rgba(4, 8, 12, 0.48);
 }
 
 .panel {
   width: min(760px, 100%);
+  max-height: calc(100dvh - 3rem);
+  overflow-y: auto;
   border-radius: 1.6rem;
   padding: 1.55rem;
+  -webkit-overflow-scrolling: touch;
 }
 
 .intro-panel {
   width: min(900px, 100%);
+  display: flex;
+  flex-direction: column;
+  padding-bottom: calc(1.15rem + env(safe-area-inset-bottom));
 }
 
 .panel h1,
@@ -356,38 +365,61 @@ button {
   }
 
   .panel {
-    padding: 1.15rem;
+    padding: 1rem;
+    max-height: calc(100dvh - 1rem);
   }
 
   .overlay {
     place-items: start center;
-    padding: 0.8rem;
+    padding: 0.5rem;
   }
 
   .intro-panel {
-    max-height: calc(100dvh - 1.6rem);
+    padding-bottom: calc(1rem + env(safe-area-inset-bottom));
   }
 
   .profile-grid {
-    gap: 0.6rem;
-    margin: 1rem 0;
+    gap: 0.55rem;
+    margin: 0.85rem 0;
   }
 
   .profile-grid div {
-    padding: 0.75rem;
+    padding: 0.72rem;
   }
 
   .control-notes {
-    gap: 0.35rem;
-    margin-bottom: 0.9rem;
+    gap: 0.3rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .control-notes p {
+    font-size: 0.9rem;
+    line-height: 1.34;
   }
 
   .lead {
-    font-size: 0.96rem;
+    font-size: 0.94rem;
   }
 
   .button-row {
     flex-direction: column;
   }
 }
+
+@media (max-height: 920px) and (max-width: 720px) {
+  .panel h1 {
+    font-size: clamp(1.85rem, 7vw, 2.45rem);
+  }
+
+  .profile-grid strong {
+    font-size: 1.08rem;
+  }
+
+  .lead,
+  .control-notes p {
+    font-size: 0.88rem;
+  }
+}
+
+
 

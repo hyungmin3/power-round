@@ -1,4 +1,4 @@
-﻿import * as THREE from "three";
+import * as THREE from "three";
 import { EffectComposer } from "three/examples/jsm/postprocessing/EffectComposer.js";
 import { RenderPass } from "three/examples/jsm/postprocessing/RenderPass.js";
 import { UnrealBloomPass } from "three/examples/jsm/postprocessing/UnrealBloomPass.js";
@@ -648,6 +648,7 @@ export class PowerRoundApp {
   private readonly deathRefs: DeathRefs;
   private readonly joystick: HTMLElement;
   private readonly joystickThumb: HTMLElement;
+  private readonly mobileControls: HTMLElement;
   private readonly renderer: THREE.WebGLRenderer;
   private readonly composer: EffectComposer;
   private readonly bloomPass: UnrealBloomPass;
@@ -750,6 +751,7 @@ export class PowerRoundApp {
 
     this.stage = this.getElement<HTMLElement>("#stage");
     this.joystick = this.getElement<HTMLElement>("#joystick");
+    this.mobileControls = this.getElement<HTMLElement>(".mobile-controls");
     this.joystickThumb = this.getElement<HTMLElement>("#joystick-thumb");
     this.overlays = {
       menu: this.getElement<HTMLElement>('[data-overlay="menu"]'),
@@ -1272,6 +1274,7 @@ export class PowerRoundApp {
     this.overlays.menu.classList.toggle(hidden, mode !== "menu");
     this.overlays.death.classList.toggle(hidden, mode !== "death");
     this.overlays.result.classList.toggle(hidden, mode !== "result");
+    this.mobileControls.classList.toggle(hidden, !this.coarsePointer || mode !== "playing");
   }
 
   private syncProfileUi(): void {
@@ -2087,6 +2090,9 @@ export class PowerRoundApp {
     this.camera.updateProjectionMatrix();
   }
 }
+
+
+
 
 
 
