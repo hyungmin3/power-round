@@ -345,26 +345,86 @@ button {
 
 @media (max-width: 720px) {
   .hud {
-    padding: 0.7rem;
+    padding: 0.5rem;
   }
 
   .hud-top {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0.45rem;
+    width: min(338px, calc(100vw - 1rem));
+  }
+
+  .hud-card {
+    padding: 0.45rem 0.58rem;
+    border-radius: 0.85rem;
+  }
+
+  .hud-label,
+  .panel-header span {
+    font-size: 0.62rem;
+    letter-spacing: 0.06em;
+  }
+
+  .hud-card strong {
+    margin-top: 0.08rem;
+    font-size: 0.96rem;
+    line-height: 1.05;
   }
 
   .hud-side {
-    right: 0.7rem;
-    bottom: 5.9rem;
-    width: min(250px, calc(100vw - 1.4rem));
+    right: 0.5rem;
+    bottom: 5.65rem;
+    gap: 0.45rem;
+    width: min(214px, calc(100vw - 1rem));
   }
 
-  .panel,
-  .compact-panel,
-  .hud-card {
-    border-radius: 1rem;
+  .compact-panel {
+    padding: 0.62rem;
+    border-radius: 0.85rem;
+  }
+
+  .panel-header {
+    gap: 0.55rem;
+  }
+
+  .panel-header h2 {
+    font-size: 0.9rem;
+  }
+
+  .challenge-list {
+    margin-top: 0.45rem;
+    gap: 0.35rem;
+  }
+
+  .compact-item {
+    gap: 0.45rem;
+    padding: 0.48rem 0.56rem;
+    border-radius: 0.7rem;
+  }
+
+  .compact-item strong {
+    font-size: 0.78rem;
+  }
+
+  .compact-item span {
+    font-size: 0.69rem;
+    line-height: 1.25;
+  }
+
+  .feed-panel p {
+    font-size: 0.78rem;
+    line-height: 1.32;
+  }
+
+  .status-panel p {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
   }
 
   .panel {
+    border-radius: 1rem;
     padding: 1rem;
     max-height: calc(100dvh - 1rem);
   }
@@ -407,6 +467,36 @@ button {
 }
 
 @media (max-height: 920px) and (max-width: 720px) {
+  .hud-top {
+    gap: 0.38rem;
+    width: min(322px, calc(100vw - 0.8rem));
+  }
+
+  .hud-card {
+    padding: 0.4rem 0.5rem;
+  }
+
+  .hud-card strong {
+    font-size: 0.88rem;
+  }
+
+  .hud-side {
+    width: min(192px, calc(100vw - 0.9rem));
+    bottom: 5.55rem;
+  }
+
+  .compact-panel {
+    padding: 0.55rem;
+  }
+
+  .feed-panel p {
+    font-size: 0.74rem;
+  }
+
+  .status-panel p {
+    -webkit-line-clamp: 2;
+  }
+
   .panel h1 {
     font-size: clamp(1.85rem, 7vw, 2.45rem);
   }
@@ -420,6 +510,7 @@ button {
     font-size: 0.88rem;
   }
 }
+
 
 
 
